@@ -1,0 +1,60 @@
+﻿.safe {
+	width: 170px;
+	height: 145px;
+	margin: 0 20px;
+	overflow: hidden;
+}
+
+.safe .frame{
+	width: 350px;
+     -webkit-transition: margin 1s ease-out;
+     -moz-transition: margin 1s ease-out;
+     -o-transition: margin 1s ease-out;
+     transition: margin 1s ease-out;
+}
+
+.safe.flip .frame{
+	margin-left: -170px;
+}
+
+.safe .front {
+	position: relative;
+	display: inline-block;
+	width: 170px;
+	text-align: center;
+	background-color: white;
+	top: -40px;
+}
+
+.safe .front img {
+	margin: 15px;
+	height: 115px;
+	width: 140px;
+}
+
+.safe .back {
+	padding: 5px;
+	position: relative;
+	border-radius: 5px;
+	display: inline-block;
+	width: 165px;
+}
+
+.safe .back .glyphicon {
+	position: absolute;
+	right: 5px;
+}
+
+.safe .back .checkbox {
+	float: right;
+	padding: 0;
+}
+
+.safe .back input[type='text'],
+.safe .back input[type='password'] {
+	width: 130px;
+}
+
+.safe .back input {
+	margin-left: 10px;
+}

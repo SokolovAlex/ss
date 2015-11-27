@@ -1,0 +1,38 @@
+﻿@model Ssibir.MVC.Models.ViewModels.CardListVM
+ 
+	<h5><span class="label label-default">@Model.Title</span></h5> 
+	
+	@foreach(Ssibir.MVC.Models.ViewModels.CardVM item in Model.Cards) {
+
+		<a href="@item.href">
+			<div class="card" data-key="@item.key" data-id="@item.id">
+				<img  class='image img-thumbnail' src="@item.thumbUrl" alt="" />
+				<div class="title">
+					@item.title
+				</div>
+				<div class="preText" title="@item.preText">
+					<span>@item.preText</span>
+				</div>
+
+				 @if(item.tour != null){
+					<div class="cost label label-info">
+						Цена @item.tour.Cost р.
+					</div>
+				}
+
+				 @if (item.extras != null)
+				 {
+					 foreach(Ssibir.MVC.Models.ViewModels.ExtraData extra in item.extras)
+					  {
+						<div class="label extra label-info">
+							@if (String.Equals(extra.value, extra.label) == true) {
+	   							 <span> @extra.value</span>
+							} else {
+	   							<span>@extra.label : @extra.value</span>
+							}
+						</div>
+					  }
+				 }
+			</div>
+		</a>
+	}

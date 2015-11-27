@@ -1,0 +1,27 @@
+﻿.pageImage1 {
+	float: right;
+	width: 400px;
+	height: 260px;
+	margin: 10px;
+}
+
+.page {
+	font-size: 14px;
+}
+
+.page.manager .title {
+	display: inline-block;
+}
+
+.page.manager .titleComment {
+	display: inline-block;
+    float: right;
+}
+
+.page.manager .contact a {
+	color: rgb(226, 255, 121);
+}
+
+ .page p {
+    text-indent: 30px; /* Отступ первой строки в пикселах */
+}

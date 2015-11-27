@@ -1,0 +1,84 @@
+﻿@model Ssibir.DAL.Models.Page
+
+@{
+	bool hasDirection = Model.Direction != null;
+	bool hasHotels = Model.Hotels.Count() != 0;
+	bool hasTour = Model.Tour != null;
+	bool hasComments = Model.Comments.Count() != 0;
+}
+
+<div class="page">
+		
+		<div class="'pageHeader'">
+			<h3> @Model.Title </h3>
+		</div>
+
+
+		<div class="'pageBody'">
+			<img class="pageImage1 img-thumbnail" src="@Model.ImageUrl" alt="" />
+				@Html.Raw(Model.Html)
+		</div>
+
+		<div class="'pageFooter'">
+
+			@if (hasDirection || hasHotels || hasTour || hasComments)
+			{
+	   
+				<!-- Nav tabs -->
+	   			<ul class="nav nav-tabs" role="tablist">
+			  
+					@if (hasDirection)
+					{
+						<li class="active"><a href="#direction" role="tab" data-toggle="tab">Направление</a></li>
+					}
+
+					@if (hasHotels)
+					{
+						<li class="active"><a href="#hotels" role="tab" data-toggle="tab">Отели </a></li>
+					}
+
+					@if (hasTour)
+					{
+						<li class="active"><a href="#cost" role="tab" data-toggle="tab">Цена</a></li>
+					}
+
+					@if (hasComments)
+					{
+						<li class="active"><a href="#comments" role="tab" data-toggle="tab">Отзывы</a></li>
+					}
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					
+					@if (hasDirection)
+					{
+						<div class="tab-pane active" id="direction">
+							direction
+						</div>
+					}
+
+					@if (hasHotels)
+					{
+						<div class="tab-pane" id="hotels">
+							hotels
+						</div>
+					}
+
+					@if (hasTour)
+					{
+						<div class="tab-pane" id="tour">
+						   tour
+						</div>
+					}
+
+					@if (hasComments)
+					{
+						<div class="tab-pane" id="comments">
+							  comments
+						</div>
+					}
+				</div>
+			}
+		</div>
+	</div>

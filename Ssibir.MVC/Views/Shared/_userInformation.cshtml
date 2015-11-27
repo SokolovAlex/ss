@@ -1,0 +1,23 @@
+﻿@model Ssibir.DAL.Models.Interfaces.IUser
+@{
+	//var context = HttpContext.Current.User as Ssibir.MVC.Models.User.MyIdentity;
+	var identity = HttpContext.Current.User.Identity as Ssibir.MVC.Models.User.MyIdentity;
+}
+<div>
+	<div style="margin:5px 0; display:inline-block"><b>Login</b></div>
+	<div style="margin:5px 0; display:inline-block">@identity.Name</div>
+</div>
+<div>
+	<div style="margin:5px 0; display:inline-block"><b>Name</b></div>
+	<div style="margin:5px 0; display:inline-block">@identity.DisplayName</div>
+</div>
+<div>
+	<div style="margin:5px 0; display:inline-block"><b>Role</b></div>
+	<div style="margin:5px 0; display:inline-block">@identity.Role.ToString()</div>
+</div>
+<div>
+    @if (identity.Role == Ssibir.DAL.Models.Enums.Roles.Manager) {
+        <a href="@Url.Action("ManagerMenu","Manager")">Menu</a>
+    }
+	<a href="@Url.Action("LogOff","Account")">Log off</a>
+</div>

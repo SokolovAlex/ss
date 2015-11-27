@@ -1,0 +1,53 @@
+﻿<h2>Поиск автобусного тура</h2>
+
+<div id="search_tours"></div>
+<script type="text/javascript">	
+	if (!window.TTVLoaded) {
+		window.TTVLoaded = true;
+
+		debugger
+
+		var UICss = document.createElement('link'),
+			ExtendCss = document.createElement('link'),
+			scriptUI = document.createElement('script'),
+			scriptDP = document.createElement('script'),
+			scriptTTVSearch = document.createElement('script'),
+			head = document.head || document.getElementsByTagName('head')[0];
+
+		scriptUI.setAttribute('type', 'text/javascript');
+		scriptDP.setAttribute('type', 'text/javascript');
+		scriptTTVSearch.setAttribute('type', 'text/javascript');
+
+
+		UICss.setAttribute('src', 'http://www.tourtrans.ru/js/agencies/ui/css/cupertino/jquery-ui-1.7.1.custom.css');
+		ExtendCss.setAttribute('src', 'http://www.tourtrans.ru/css/export.css');
+		scriptUI.setAttribute('src', 'http://www.tourtrans.ru/js/agencies/ui/js/jquery-ui-1.7.1.custom.min.js');
+		scriptDP.setAttribute('src', 'http://www.tourtrans.ru/js/agencies/ui/js/i18n/ui.datepicker-ru.js');
+		scriptTTVSearch.setAttribute('src', 'http://www.tourtrans.ru/js/agencies/search.js');
+
+		head.insertBefore(UICss, head.firstChild);
+		head.insertBefore(ExtendCss, head.firstChild);
+		head.insertBefore(scriptUI, head.firstChild);
+		head.insertBefore(scriptDP, head.firstChild);
+		head.insertBefore(scriptTTVSearch, head.firstChild);
+
+
+		var a1 = $.Deferred(),
+			a2 = $.Deferred(),
+			a3 = $.Deferred(),
+			a4 = $.Deferred()
+			a5 = $.Deferred();
+
+		UICss.onload = a1.resolve;
+		ExtendCss.onload = a2.resolve;
+		scriptUI.onload = a3.resolve;
+		scriptDP.onload = a4.resolve;
+		scriptTTVSearch.onload = a5.resolve;
+
+
+		$.when(a1, a2, a3, a4, a5).done(function (args1, args2) {
+			alert('!!!!!!!!!!!!!!!');
+			gettoursearch("http://ssibir.azurewebsites.net/");
+		});
+	}
+</script>

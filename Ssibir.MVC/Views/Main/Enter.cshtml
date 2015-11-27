@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+	<div class="row">
+		<div class="col-xs-7" id="hots">
+			<h5><span class="label label-warning">Специальные предложения</span></h5>
+			<div class="list"></div>
+		</div>
+		<div class="col-xs-5" id="news">
+			<h5><span class="label label-info">Новости</span></h5>
+			<div class="list"></div>
+		</div>
+	</div>
+
+
+@section scripts{
+    <script type="text/template" id="tourTemplate">
+        <div class="tourCard card">
+            <img  class='image img-thumbnail' src="<%= thumbUrl %>" alt="" />
+			<div class="title">
+                <%= title %>
+            </div>
+
+            <div class="preText" title="<%= preText %>">
+				<span><%= preText %></span>
+			</div>
+
+			<div class="cost label label-info">
+				Цена <%= cost %> р.
+			</div>
+
+        </div>
+    </script>
+
+    <script type="text/template" id="newTemplate">
+        <div class="newsCard card">
+             <div class="title">
+                <%= title %>
+            </div>
+
+            <div class="preText" title="<%= preText %>">
+                <%= preText %>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/javascript">
+        var initData = @Html.Raw(ViewBag.Data);
+
+        var tourItem = function TourItem(data) {
+            var self = this;
+            self.id = data.Id;
+            self.preText = data.PreText;
+            self.title = data.Title;
+            self.key = data.key;
+            self.imageUrl = data.ImageUrl;
+            self.thumbUrl = data.ThumbUrl;
+            self.cost = data.Tour && data.Tour.Cost || '';
+        }
+
+        var app = {
+            news: [],
+            tours: [],
+            el: $('#mainPage'),
+            newsEl: $('#mainPage #news .list'),
+            toursEl: $('#mainPage #hots .list'),
+            tourTemplate: $('#tourTemplate').html(),
+            newTemplate: $('#newTemplate').html(),
+
+            init: function() {
+                app.tours = _.map(initData.tourPages, function(item) {
+                    return new tourItem(item);
+                });
+                app.news = _.map(initData.news, function(item) {
+                    return new tourItem(item);
+                });
+                app.render();
+            },
+
+            render: function() {
+            	var firstNews = _.first(app.news, 4),
+                    firstTours = _.first(app.tours, 3);
+            	_.each(firstNews, function(item) {
+            		app.newsEl.append(_.template(app.newTemplate, item));
+            		app.newsEl.children().last().click(_.partial(ssibir.toPage, item.key || item.id, null));
+            	});
+
+            	_.each(firstTours, function(item) {
+            		var el = _.template(app.tourTemplate, item);
+            		app.toursEl.append(el);
+            		app.toursEl.children().last().click(_.partial(ssibir.toPage, item.key || item.id, null));
+            	});
+            }
+        }
+
+        app.init();
+    </script>
+}

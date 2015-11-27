@@ -1,0 +1,273 @@
+﻿.menuimage{width:350px;height: 130px;}
+
+a, a:hover{
+	outline: none;
+	color: #000;
+	text-decoration: none;
+}
+
+#Slogan{
+    height: 100px;
+    float:right;
+	padding:20px 20px 0 0;
+    font-family:Arial;
+    font-size: 14px;
+    text-align:right;
+}
+#Info
+{
+    width:200px;
+    height: 100px;
+    float:right;
+    background-image: url(/Images/Others/ico-phone.png);  
+    background-position: left;
+    background-repeat:no-repeat;
+    padding:20px 0 0 50px;
+    margin:0 0 0 20px;
+    font-size: 20px;
+}
+
+.paddingT50{padding:50px 0 0 0;}
+.paddingT30{padding:30px 0 0 0;}
+
+.marginT3{margin-top:3px}
+.marginT5{margin-top:5px}
+.marginT10{margin-top:10px}
+.marginT20{margin-top:20px}
+
+.Tour
+{
+    width: 500px;
+    height:100px;
+    border-bottom-style:solid;
+}
+#LogInDiv
+{  
+    position: absolute;
+    bottom:0;
+    width:200px;
+    height:25px;
+    overflow: hidden;
+	background-color: #e9e9e9;
+	border-top: 1px solid;
+}
+.avatar
+{
+    width:160px;
+    height:160px;
+}
+.headCol
+{
+    float:left;
+    height: 25px;
+    font-style:oblique;  
+    font-weight: bold;
+}
+.tableItem
+{
+    float:left;
+   height: 25px;
+}
+.tableRow
+{
+    width: 600px;
+    margin-top: 5px;
+    height: 25px;
+}
+
+.w200
+{
+    width: 200px;
+}
+.w69
+{
+    width: 69px;
+}
+.w60
+{
+    width: 60px;
+}
+.w67
+{
+    width: 67px;
+}
+
+.h300{height: 300px}
+.h200{height: 200px}
+.h100{height: 100px}
+
+.textCenter
+{
+    text-align:center;
+}
+.BorderB{border-bottom:1px solid Black;}    
+.marginL10{margin-left: 10px}
+
+#AccordionImageMenu {
+	position: relative;
+	bottom: 0px;
+	visibility:hidden;
+	border-radius: 15px;
+	box-shadow:9px 9px 10px 0px rgb(73, 73, 73);
+}
+
+.tools-item .searchHotels {
+	color: white;
+	margin: 15px 0;
+}
+
+.tools-item {
+	padding:20px 20px 0 20px;
+	width: 200px;
+	margin: 0 auto;
+	overflow: hidden;
+	text-align: center;
+}
+.tabContainer {
+    width:100%;
+    height:100%;
+}
+
+.tabbable,
+.tab-content {
+    position:absolute;
+    height:100%
+}
+
+.tab-content {
+    width:600px;
+    padding-top: 10px;
+}
+
+.sstable-row {
+	border-bottom: 1px solid
+}
+
+.sstable thead{
+	border-bottom: 2px solid
+}
+.sstable th,
+.sstable td{
+	text-align: center;
+}
+
+.autoresize {
+    width:500px;
+}
+
+.pageModal {
+    width:800px
+}
+
+/*mainPage*/
+#mainPage {
+    padding-top: 20px
+}
+#mainPage .list{
+    /*height: 500px*/
+}
+
+.card {
+	height: 130px;
+    color: #505050;
+    margin: 10px;
+    padding: 5px;
+    border-left: solid 3px;
+    background-color: #EFEFEF;
+    position: relative;
+    transition: 0.4s;
+	overflow: hidden;
+}
+
+.card:hover{
+    background-color: rgb(197, 237, 238);
+}
+.card:active{
+    background-color: rgb(182, 218, 219);
+}
+
+.card .title{
+    font-size: 20px;
+	overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+.card .preText{
+	margin: 3px 0;
+    font-size: 12px;
+    height: 50px;
+    margin-left: 20px;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+.card .image{
+	float: right;
+    width: 150px;
+	height: 110px;
+    right: 30px;
+	margin-top: 5px;
+}
+
+.card .cost{
+     font-size: 18px;
+	 position: absolute;
+	 bottom: 0px;
+	 height: 30px;
+	 margin-bottom: 5px;
+}
+
+.card .extra {
+	font-size: 12px;
+	margin: 5px;
+}
+
+.card .extra a{
+	color: white;
+	z-index: 10;
+}
+
+.tourCard{
+    height: 165px;
+    border-left-color: #f0ad4e;
+}
+
+.newsCard{
+    height: 125px;
+    border-left-color: #5bc0de;
+}
+
+.newsCard .image{
+    width: 100px;
+    height: 100px;
+    top: 10px;
+    right: 10px;
+} 
+
+.countries .list-group-item {
+   transition: 0.4s;
+   width: 150px;
+}
+
+.countries .list-group-item:hover {
+   background-color: rgb(197, 237, 238);  
+}
+
+.countries .list-group-item.disabled,
+.countries .list-group-item.disabled:hover {
+	color: #777;
+	background-color: #eee;
+	cursor:default;
+}
+
+.countries .list-group-item:active {
+   background-color: rgb(182, 218, 219);
+}
+
+.Footer .partners {
+	text-align: center;
+}
+
+.Footer .partners img {
+	margin: 0 5px 10px 5px;
+}

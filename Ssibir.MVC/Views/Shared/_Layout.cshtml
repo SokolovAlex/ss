@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Столица Сибири</title>
+    <link rel="icon" type="image/png" href="@Url.Content("~/ЛоготипСС.ico")"/>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    @Styles.Render("~/Content/css/all")
+    @Scripts.Render("~/bundles/firstInit")
+    @Scripts.Render("~/bundles/libraries")
+</head>
+<body>
+    <div id="page" >
+        <!--Head -->
+        <div class="top_block Header">
+            <div class="header">
+               <a style="float:left;" href="/Main/Enter"><img alt='' style="width:370px;height:100px; margin: 10px 60px" src="~/Images/Logos/SS.gif" /></a> 
+              
+               <div id="Info">
+                  <div>(383) 287-22-48 </div>
+                  <div>(383) 213-15-14</div>
+              </div>
+
+				 <div id="Slogan"> 
+                   <div>
+					   <p><span class="label label-info">Россия</span> <span>г.Новосибирск</span></p>
+					   <p>ул. Коммунистическая</p>
+					   <p>дом. 48а. офис 605</p>
+                   </div>
+               </div>
+
+            </div>
+        </div>
+        @Html.Partial("_Menu")
+        <!--Center -->
+     <div class="center_block Body">
+			<div class="row">
+			  <div class="col-md-3 LeftMenu">
+				  @Html.Partial("_LeftDiv")
+			  </div>
+			  <div class="col-md-9">
+				<div id="mainPage"> 
+					@RenderBody()
+				</div>
+			  </div>
+			</div>
+      </div>
+
+       <!--Footer -->
+		<div class="bottom_block Footer">
+			<div class="partners">
+				<div class="lineLabel">
+					Наши партнеры
+				</div>
+				<a href="http://atorus.ru">
+					<img src="@Url.Content("~/Images/Partners/ator.png")" alt="Ассоциация туроператоров Росии" title="Ассоциация туроператоров Росии"></a>
+				<a href="http://tez-tour.com">
+					<img src="@Url.Content("~/Images/Partners/tez.png")" alt="Тез Тур" title="Тез Тур"></a>
+				<a href="http://pegast.ru">
+					<img src="@Url.Content("~/Images/Partners/pegas.png")" alt="Пегас Туристик" title="Пегас Туристик"></a>
+				<a href="http://sunrise-tour.ru">
+					<img src="@Url.Content("~/Images/Partners/sunrise.png")" alt="Санрайз Тур" title="Санрайз Тур"></a>
+				<a href="http://intourist.ru">
+					<img src="@Url.Content("~/Images/Partners/intourist.png")" alt="Интурист" title="Интурист"></a>
+				<a href="http://mouzenidis-travel.ru">
+					<img src="@Url.Content("~/Images/Partners/muzenidis.png")" alt="Музендис Тревел" title="Музендис Тревел"></a>
+				<a href="http://bgoperator.ru">
+					<img src="@Url.Content("~/Images/Partners/biblio.png")" alt="Библиоглобус" title="Библиоглобус"></a>
+				<a href=http://anextour.ru">
+					<img src="@Url.Content("~/Images/Partners/anex.png")" alt="Анекс Тур" title="Анекс Тур"></a>
+				<a href="http://tui.ru">
+					<img src="@Url.Content("~/Images/Partners/tui.png")" alt="TUI" title="TUI"></a>
+				<a href="http://coral.ru">
+					<img src="@Url.Content("~/Images/Partners/coral.png")" alt="Корал тревел" title="Корал тревел"></a>
+				<a href="http://sunmar.ru">
+					<img src="@Url.Content("~/Images/Partners/sunmar.png")" alt="Санмар Тур" title="Санмар Тур"></a>
+				<a href="http://natalie-tours.ru">
+					<img src="@Url.Content("~/Images/Partners/natalie.png")" alt="Natalie Tours" title="Natalie Tours"></a>
+			</div>
+
+
+			<div class="contacts"> 
+				<div class="lineLabel">
+					Контакты
+				</div>
+
+				<div class="col-md-4">
+					<div>Тел: +7 (383) 287-22-48 </div>
+				</div>
+
+				<div class="col-md-4">
+					<div>Адрес: Коммунистическая 48а, офис 605</div>
+					<div> Новосибирск, Россия</div>
+					<div>Часы работы: 10:00 - 19:00</div>
+				</div>
+				
+				<div class="col-md-4">
+					<div>Для быстрой связи Skype:</div>
+					<div>sokolova.elena2</div>
+				</div>
+		     </div>
+		</div>
+	</div>
+
+	@Html.Partial("_requestTour")
+	@Html.Partial("_ssAlert")
+	@Html.Partial("_pageTemplates")
+	@Html.Partial("_listTemplate")
+
+	@Scripts.Render("~/Scripts/custom/init")
+
+	<script type="text/jscript">
+		window.SS = {};
+		window.SS.config = {};
+		window.SS.config.baseUrl = '@Url.Content("~/")';
+    </script>
+
+	@RenderSection("scripts", false)
+</body>
+</html>

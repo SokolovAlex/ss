@@ -1,0 +1,24 @@
+﻿.aim{position:relative;overflow:hidden;margin:0;clear:both; padding:0}
+.aim .menuitem{background-position:center center;cursor:pointer;display:block;overflow:hidden;position:relative;float:left;text-decoration:none}
+.aim .menuitem:hover, .aim .menuitem:visited{text-decoration:none;background:White;}
+.aim .menuitem span{color:#FFFFFF;bottom:10px; left:10px;width:100%;display:block; padding:0px 5px 5px;position:absolute;background:#000;font-size:12px;font-weight:bold;height:18px; line-height:18px}
+
+.linkWrapper {
+	position: absolute;
+	top: 0;
+	padding: 15px;
+	opacity:0;
+}
+
+.menuLink {
+	display: block;
+	color:White;
+    background-color: rgba(0,0,0,0.6);
+    font-size: 14px;
+	margin: 1px;
+}
+.menuLink:hover
+{
+    color:black;
+    background-color: rgba(255,255,255,0.6);
+}
