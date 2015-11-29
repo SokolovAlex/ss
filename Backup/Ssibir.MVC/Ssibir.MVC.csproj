@@ -1,0 +1,563 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EBC5ED38-4EA5-42AD-BFA9-ABB19196E77F}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ssibir.MVC</RootNamespace>
+    <AssemblyName>Ssibir.MVC</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevOne.Security.Cryptography.BCrypt">
+      <HintPath>..\packages\BCrypt.1.0.0.0\lib\DevOne.Security.Cryptography.BCrypt.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.3.0.13117\lib\net45-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.3.0.13117\lib\net45-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.3.0.13117\lib\net45-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.3.0.13117\lib\net45-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.3.0.13117\lib\net45-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.3.0.13117\lib\net45-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common">
+      <HintPath>..\packages\Ninject.Web.Common.3.0.0.7\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc">
+      <HintPath>..\packages\Ninject.MVC3.3.0.0.6\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="SendGrid.SmtpApi">
+      <HintPath>..\packages\SendGrid.SmtpApi.1.2.1\lib\net40\SendGrid.SmtpApi.dll</HintPath>
+    </Reference>
+    <Reference Include="SendGridMail">
+      <HintPath>..\packages\Sendgrid.5.1.0\lib\SendGridMail.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivator">
+      <HintPath>..\packages\WebActivator.1.5.3\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\DIModule.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CruisesController.cs" />
+    <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\ManagerController.cs" />
+    <Compile Include="Controllers\PageController.cs" />
+    <Compile Include="Helpers\ManagerHelper.cs" />
+    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ImageHelper.cs" />
+    <Compile Include="Helpers\SendGridHelper.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\User\CustomPrincipal.cs" />
+    <Compile Include="Models\User\WrappedUser.cs" />
+    <Compile Include="Models\ViewModels\CardListVM.cs" />
+    <Compile Include="Models\ViewModels\CardVM.cs" />
+    <Compile Include="Models\ViewModels\MainPageData.cs" />
+    <Compile Include="Models\ViewModels\MainViewModel.cs" />
+    <Compile Include="Models\ViewModels\ManagerMenu.cs" />
+    <Compile Include="Models\ViewModels\TourRequest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Content\css\alert.css" />
+    <Content Include="Content\css\datepicker.css" />
+    <Content Include="Content\css\jquery-ui-1.10.4.min.css" />
+    <Content Include="Content\css\mediaScreen.css" />
+    <Content Include="Content\css\pages.css" />
+    <Content Include="Content\css\pickUpTour.css" />
+    <Content Include="Content\css\preloader.css" />
+    <Content Include="Content\css\safe.css" />
+    <Content Include="Content\css\SS.css" />
+    <Content Include="Content\css\jasny-bootstrap.css" />
+    <Content Include="Content\custom\2gis.css" />
+    <Content Include="Images\Managers\SokolovaAlina.jpg" />
+    <Content Include="Images\Managers\SokolovaElena.jpg" />
+    <Content Include="Images\Managers\SokolovaIrina.jpg" />
+    <Content Include="Images\Managers\SokolovAlex.jpg" />
+    <Content Include="Images\Managers\SokolovEvgeniy.jpg" />
+    <Content Include="Images\Others\default-avatar.png" />
+    <Content Include="Images\Others\pickUpTourBig.png" />
+    <Content Include="Images\Others\preloader.GIF" />
+    <Content Include="Images\Others\safe.png" />
+    <Content Include="Images\Pages\About1.jpg" />
+    <Content Include="Images\Pages\antalia.jpg" />
+    <Content Include="Images\Pages\bestManager.jpg" />
+    <Content Include="Images\Pages\china %281%29.jpg" />
+    <Content Include="Images\Pages\china.jpg" />
+    <Content Include="Images\Pages\czClassic.jpg" />
+    <Content Include="Images\Pages\czech.jpg" />
+    <Content Include="Images\Pages\egypt.jpg" />
+    <Content Include="Images\Pages\france.jpg" />
+    <Content Include="Images\Pages\greece.jpg" />
+    <Content Include="Images\Pages\Hurghada.jpg" />
+    <Content Include="Images\Pages\italy.jpg" />
+    <Content Include="Images\Pages\japanCruise.jpg" />
+    <Content Include="Images\Pages\madrid.jpg" />
+    <Content Include="Images\Pages\makao.jpg" />
+    <Content Include="Images\Pages\mexicaRiveraCruize.jpg" />
+    <Content Include="Images\Pages\newPatong.jpg" />
+    <Content Include="Images\Pages\oae.jpg" />
+    <Content Include="Images\Pages\oaeViza.jpg" />
+    <Content Include="Images\Pages\parisPlus.jpg" />
+    <Content Include="Images\Pages\parisRome.jpg" />
+    <Content Include="Images\Pages\peterburgCruise.jpg" />
+    <Content Include="Images\Pages\russia.jpg" />
+    <Content Include="Images\Pages\sixCapitals.jpg" />
+    <Content Include="Images\Pages\spain.jpg" />
+    <Content Include="Images\Pages\spain_mallorca.jpg" />
+    <Content Include="Images\Pages\tailand.jpg" />
+    <Content Include="Images\Pages\turkey.jpg" />
+    <Content Include="Images\Pages\venec.jpg" />
+    <Content Include="Images\Pages\WMCostAnalyze.jpg" />
+    <Content Include="Images\Partners\anex.png" />
+    <Content Include="Images\Partners\ator.png" />
+    <Content Include="Images\Partners\biblio.png" />
+    <Content Include="Images\Partners\breeze.gif" />
+    <Content Include="Images\Partners\bsi.jpg" />
+    <Content Include="Images\Partners\coral.png" />
+    <Content Include="Images\Partners\intourist.png" />
+    <Content Include="Images\Partners\logo-turtransvoyage.png" />
+    <Content Include="Images\Partners\more.png" />
+    <Content Include="Images\Partners\muzenidis.jpg" />
+    <Content Include="Images\Partners\muzenidis.png" />
+    <Content Include="Images\Partners\natalie.gif" />
+    <Content Include="Images\Partners\natalie.png" />
+    <Content Include="Images\Partners\pegas.png" />
+    <Content Include="Images\Partners\pegaust.jpg" />
+    <Content Include="Images\Partners\rus_express.jpg" />
+    <Content Include="Images\Partners\s7.jpg" />
+    <Content Include="Images\Partners\sunmar.png" />
+    <Content Include="Images\Partners\sunrise.png" />
+    <Content Include="Images\Partners\tez.gif" />
+    <Content Include="Images\Partners\tez.png" />
+    <Content Include="Images\Partners\travelsystem.png" />
+    <Content Include="Images\Partners\tui.png" />
+    <Content Include="Images\Partners\vedi.jpg" />
+    <Content Include="Images\Partners\vilar.png" />
+    <Content Include="Images\Thumbs\160.110\antalia.jpg" />
+    <Content Include="Images\Thumbs\160.110\bestManager.jpg" />
+    <Content Include="Images\Thumbs\160.110\china %281%29.jpg" />
+    <Content Include="Images\Thumbs\160.110\china.jpg" />
+    <Content Include="Images\Thumbs\160.110\czClassic.jpg" />
+    <Content Include="Images\Thumbs\160.110\czech.jpg" />
+    <Content Include="Images\Thumbs\160.110\egypt.jpg" />
+    <Content Include="Images\Thumbs\160.110\france.jpg" />
+    <Content Include="Images\Thumbs\160.110\greece.jpg" />
+    <Content Include="Images\Thumbs\160.110\Hurghada.jpg" />
+    <Content Include="Images\Thumbs\160.110\italy.jpg" />
+    <Content Include="Images\Thumbs\160.110\japanCruise.jpg" />
+    <Content Include="Images\Thumbs\160.110\madrid.jpg" />
+    <Content Include="Images\Thumbs\160.110\makao.jpg" />
+    <Content Include="Images\Thumbs\160.110\mexicaRiveraCruize.jpg" />
+    <Content Include="Images\Thumbs\160.110\newPatong.jpg" />
+    <Content Include="Images\Thumbs\160.110\oae.jpg" />
+    <Content Include="Images\Thumbs\160.110\oaeViza.jpg" />
+    <Content Include="Images\Thumbs\160.110\parisPlus.jpg" />
+    <Content Include="Images\Thumbs\160.110\parisRome.jpg" />
+    <Content Include="Images\Thumbs\160.110\peterburgCruise.jpg" />
+    <Content Include="Images\Thumbs\160.110\russia.jpg" />
+    <Content Include="Images\Thumbs\160.110\sixCapitals.jpg" />
+    <Content Include="Images\Thumbs\160.110\SokolovaAlina.jpg" />
+    <Content Include="Images\Thumbs\160.110\SokolovaElena.jpg" />
+    <Content Include="Images\Thumbs\160.110\SokolovaEvgeniy.jpg" />
+    <Content Include="Images\Thumbs\160.110\SokolovaIrina.jpg" />
+    <Content Include="Images\Thumbs\160.110\SokolovAlex.jpg" />
+    <Content Include="Images\Thumbs\160.110\SokolovEvgeniy.jpg" />
+    <Content Include="Images\Thumbs\160.110\spain.jpg" />
+    <Content Include="Images\Thumbs\160.110\spain_mallorca.jpg" />
+    <Content Include="Images\Thumbs\160.110\tailand.jpg" />
+    <Content Include="Images\Thumbs\160.110\turkey.jpg" />
+    <Content Include="Images\Thumbs\160.110\venec.jpg" />
+    <Content Include="Images\Thumbs\160.110\WMCostAnalyze.jpg" />
+    <Content Include="Scripts\custom\init.js" />
+    <Content Include="Scripts\libraries\bootstrap-datepicker.js" />
+    <Content Include="Scripts\libraries\global.js" />
+    <Content Include="Scripts\custom\managerMenu.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\img\glyphicons-halflings.png" />
+    <Content Include="Content\menu.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\base\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.menu.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.spinner.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="Content\themes\base\minified\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\Logos\Puzzelmini.gif" />
+    <Content Include="Images\Logos\SS.gif" />
+    <Content Include="Images\Logos\Логотип-ССкарты2.gif" />
+    <Content Include="Images\Logos\ЛоготипЗемляЧ-Б.gif" />
+    <Content Include="Images\Logos\логотипКарты3.gif" />
+    <Content Include="Images\Logos\ЛоготипСССточкой1.gif" />
+    <Content Include="Images\Menu\1.jpg" />
+    <Content Include="Images\Menu\2.jpg" />
+    <Content Include="Images\Menu\3%282%29.jpg" />
+    <Content Include="Images\Menu\4.jpg" />
+    <Content Include="Images\Menu\5.png" />
+    <Content Include="Images\Menu\3.jpg" />
+    <Content Include="Images\Menu\3%283%29.jpg" />
+    <Content Include="Images\Others\empty.jpg" />
+    <Content Include="Images\Others\globe_disconnected.png" />
+    <Content Include="Images\Others\ico-phone.png" />
+    <Content Include="Images\Staff\DSC07271.jpg" />
+    <Content Include="Images\Staff\P3145054.jpg" />
+    <Content Include="Scripts\custom\table.js" />
+    <Content Include="Scripts\libraries\historyApi.js" />
+    <Content Include="Scripts\libraries\ssAlert.js" />
+    <Content Include="Scripts\libraries\underscore.js" />
+    <Content Include="Scripts\notUsed\y_jquery-ui-1.10.4.min.js" />
+    <Content Include="Scripts\libraries\autoresize.js" />
+    <Content Include="Scripts\libraries\bootstrap.js" />
+    <Content Include="Scripts\libraries\jasny-bootstrap.js" />
+    <Content Include="Scripts\firstInit\jquery.js" />
+    <Content Include="Scripts\libraries\menuJS.js" />
+    <Content Include="ЛоготипСС.ico" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Main\Enter.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\Shared\_LeftDiv.cshtml" />
+    <Content Include="Views\Shared\_logOn.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\" />
+    <Folder Include="Images\Clients\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ssibir.DAL\Ssibir.DAL.csproj">
+      <Project>{29bebb4d-7b48-4ac0-a87e-5f851f75dfe5}</Project>
+      <Name>Ssibir.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ssibir.web.Core\Ssibir.web.Core.csproj">
+      <Project>{74d6caec-8eaa-4d7a-a045-aa002d3b9a0a}</Project>
+      <Name>Ssibir.web.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_userInformation.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cruises\Breeze.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_whether.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_course.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Page\About.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Main\Index2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Manager\ManagerMenu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_tableTemplates.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Manager\_newsPage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\NotUsed\_searchForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_pageTemplates.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_listTemplate.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Page\Page.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Page\List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Page\Manager.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Page\Vacancies.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\ss2.pubxml" />
+    <None Include="Properties\PublishProfiles\ssibir - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\ssibir - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\ssibir - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\ssibir - Web Deploy.pubxml" />
+    <Content Include="Views\Page\Search.cshtml" />
+    <Content Include="Views\Shared\_requestTour.cshtml" />
+    <Content Include="Views\Shared\_ssAlert.cshtml" />
+    <None Include="Properties\PublishProfiles\ssibir2 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\ssibir2 - Web Deploy.pubxml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>65366</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:63436/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,66 @@
+﻿#pickUpTour {
+	position: fixed;
+	top: 80px;
+	left: 0;
+	transition: margin-left ease-in 1s;
+	margin-left: -400px;
+}
+
+#pickUpTour.open {
+	margin-left: 0;
+}
+
+#pickUpTour .panel {
+	padding: 20px 10px;
+	height: 550px;
+	width: 400px;
+	background-color: #A1F1FC;
+	display: inline-block;
+	vertical-align:top;
+	position: relative;
+}
+#pickUpTour #tooglePickUpTour {
+	background-image: url(/Images/Others/pickUpTourBig.png);
+	background-size: 30px 150px;
+    background-repeat: no-repeat;
+	margin-left:-4px;
+	display: inline-block;
+	vertical-align:top;
+	width: 30px;
+	height: 150px;
+}
+#pickUpTour textarea#greeting {
+	width: 100%;
+	resize: none;
+	height:	80px;
+}
+#pickUpTour #avatar {
+	width: 80px;
+	height: 80px;
+	max-width: none;
+}
+#pickUpTour .head {
+	overflow:hidden;
+	margin-bottom:15px;
+}
+#pickUpTour .body {
+	overflow:hidden;
+}
+
+#pickUpTour .datePicker {
+	display: inline-block;
+	width: 49%;
+}
+#pickUpTour #wishes {
+	width: 100%;
+	resize: none;
+}
+
+#pickUpTour button {
+	display: table;
+	width: 50%;
+	overflow: auto;
+	margin: auto;
+	position: absolute;
+	left: 0; right: 0;
+}

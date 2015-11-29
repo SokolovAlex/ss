@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ssibir.MVC", "Ssibir.MVC\Ssibir.MVC.csproj", "{EBC5ED38-4EA5-42AD-BFA9-ABB19196E77F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ssibir.DAL", "Ssibir.DAL\Ssibir.DAL.csproj", "{29BEBB4D-7B48-4AC0-A87E-5F851F75DFE5}"

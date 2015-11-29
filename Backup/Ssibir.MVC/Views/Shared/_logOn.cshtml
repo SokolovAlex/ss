@@ -1,0 +1,26 @@
+﻿@*@model Ssibir.DAL.Models.Interfaces.IUser*@
+
+@using (Ajax.BeginForm("Login", "Account", new AjaxOptions() { OnSuccess="Fail"}))
+{
+	<div>
+        <span class="glyphicon glyphicon-remove"></span>
+    </div>
+	
+	<div class="form-group" style="margin-right:12px;">
+		<input type="text" name="UserName" class="form-control input-sm" id="userName" placeholder="Логин">
+	</div>
+	<div class="form-group" style="margin-right:12px;">
+		<input type="password" name="Password" class="form-control input-sm" id="password" placeholder="Пароль">
+	</div>
+	
+	 <div class="checkbox">
+		<label>
+			<input type="checkbox" name='rememberMe' checked="true"> запомнить
+		</label>
+	</div>
+	
+	<input class="btn btn-primary btn-sm" value="войти" type="submit"/>
+}
+<div style="color:Red" id='error'></div>
+
+ 

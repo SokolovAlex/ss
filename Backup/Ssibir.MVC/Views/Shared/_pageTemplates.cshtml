@@ -1,0 +1,96 @@
+﻿<script type="text/template" id="simpleTemplate">
+	 <div class="page">
+		
+		<div class="'pageHeader'">
+			<h3><%= title %> </h3>
+		</div>
+
+
+		<div class="'pageBody'">
+			<img class="pageImage1 img-thumbnail" src="<%= imageUrl %>" alt="" />
+			<%= html %>
+		</div>
+
+		<div class="'pageFooter'">
+
+			  <% if (direction || hotels || cost || comments) { %>
+
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+			  
+					<% if (direction) { %>
+						<li class="active"><a href="#direction" role="tab" data-toggle="tab">Направление</a></li>
+					 <% } %> 
+
+					<% if (hotels) { %>
+						<li class="active"><a href="#hotels" role="tab" data-toggle="tab">Отели </a></li>
+					 <% } %>
+
+					<% if (cost) { %>
+						<li class="active"><a href="#cost" role="tab" data-toggle="tab">Цена</a></li>
+					 <% } %>
+
+					<% if (comments) { %>
+						<li class="active"><a href="#comments" role="tab" data-toggle="tab">Отзывы</a></li>
+					 <% } %>
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<% if (direction) { %>
+						<div class="tab-pane active" id="direction">
+							direction
+						</div>
+					<% } %> 
+
+					<% if (hotels) { %>
+						<div class="tab-pane" id="hotels">
+							hotels
+						</div>
+					<% } %> 
+
+					<% if (cost) { %>
+						<div class="tab-pane" id="cost">
+
+						</div>
+					<% } %> 
+
+					<% if (comments) { %>
+						<div class="tab-pane" id="comments">
+						</div>
+					<% } %> 
+				</div>
+			<% } %> 
+		</div>
+	</div>
+</script>
+
+<script type="text/template" id="managerTemplate">
+	 <div class="page manager">
+		<div class="'pageHeader'">
+			<h2 class="title"><%= displayName %></h2>
+			<div class="titleComment"><i><%= job %></i></div>
+		</div>
+         <hr/>
+		<div class="'pageBody'">
+			<img class="pageImage1 img-thumbnail" src="<%= imageUrl %>" alt="" />
+			<p><%= description %></p>
+			<div>
+				<h4> Контакты</h4>
+
+				<div class="contact label label-info"> Телефон: <%= phone %></div>
+
+				<div class="contact label label-info">email:<a href="mailto:<%= email %>"> <%= email %></a></div>
+
+				 <% if (skype) { %>
+					<div class="contact label label-info"> skype: <%= skype %></div>
+				<% } %> 
+
+				<% if (vk) { %>
+					<a href="<%= vk %>" class="contact label label-info"> Вконтакте </a>
+				<% } %>
+			</div>
+		</div>
+	</div>
+</script>
+

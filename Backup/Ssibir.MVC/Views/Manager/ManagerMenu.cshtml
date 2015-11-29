@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Manager Menu";
+}
+
+<h2>Manager Menu</h2>
+
+<div class="tabbable tabs-left" id="tabs">
+  <ul class="nav nav-tabs">
+       <li>
+			<a href="#pages" data-toggle="tab">Pages</a>
+       </li>
+       <li>
+			<a href="#clients" data-toggle="tab">Clients</a>
+       </li>
+       <li>
+			<a href="#settings" data-toggle="tab">My Info</a>
+       </li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane" id="pages">
+    </div>
+    <div class="tab-pane" id="clients">
+    </div>
+    <div class="tab-pane" id="settings">
+    </div>
+  </div>
+</div>
+
+
+@section scripts {
+
+<div id="modal" data-backdrop="static" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                <button type="button" class="btn btn-primary save">Сохранить</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+    <script type="text/javascript">
+        var data = @Html.Raw(ViewBag.Data);
+    </script>
+
+    @Html.Partial("_tableTemplates")
+
+    @Scripts.Render("~/Scripts/custom/table")
+
+    @Scripts.Render("~/Scripts/custom/managerMenu")
+}
+
+
+
+
+
+

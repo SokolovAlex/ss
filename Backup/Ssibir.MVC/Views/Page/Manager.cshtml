@@ -1,0 +1,32 @@
+﻿@model Ssibir.DAL.Models.Manager
+
+@{
+    ViewBag.Title = String.Join("Столица Сибири - ", Model.DisplayName);
+}
+
+<div class="page manager">
+	<div class="'pageHeader'">
+		<h2 class="title">@Model.DisplayName</h2>
+		<div class="titleComment"><i>@Model.JobDescription</i></div>
+    </div>
+    <hr />
+	<div class="'pageBody'">
+		<img class="pageImage1 img-thumbnail" src="@Model.ImageUrl" alt="" />
+		<p>@Model.Description</p>
+		<div>
+			<h4> Контакты</h4>
+
+			<div class="contact label label-info"> Телефон: @Model.Phone</div>
+
+			<div class="contact label label-info">email:<a href="mailto:@Model.Email"> @Model.Email</a></div>
+
+			@if (String.IsNullOrWhiteSpace(Model.Skype) == false) {
+				<div class="contact label label-info"> skype: @Model.Skype</div>
+			}
+
+			@if (String.IsNullOrWhiteSpace(Model.Vk) == false) {
+				<a href="@Model.Vk" class="contact label label-info"> Вконтакте </a>
+			}
+		</div>
+	</div>
+</div>

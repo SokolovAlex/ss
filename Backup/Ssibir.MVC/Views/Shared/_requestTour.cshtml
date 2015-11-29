@@ -1,0 +1,75 @@
+﻿<div id="pickUpTour">
+	<div class="panel">
+		<div class="head">
+			<div class="col-md-3">
+				<img id='avatar' class="img-thumbnail" src='@Url.Content("/Images/Others/default-avatar.png")'/>
+			</div>
+			<div class="col-md-9">
+				<textarea disabled class="form-control" rows="3" id="greeting">Оставьте Ваши контактные данные и пожелания по туру.</textarea>
+			</div>
+		</div>
+			
+		<div class="body">
+			<form class="form-horizontal" id="requestTourForm">
+					
+				<div class="form-group">
+					<label for="inputManager" class="col-sm-3 control-label">Мэнеджер</label>
+					<div class="col-sm-9">
+						<select class="form-control" id="inputManager" name="ManagerId">
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="inputName" class="col-sm-3 control-label">Ваше имя*</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" id="inputName" name="UserName" placeholder="Name">
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<label for="inputEmail" class="col-sm-3 control-label">Email*</label>
+					<div class="col-sm-9">
+						<input type="email" class="form-control" id="inputEmail" name="Email" placeholder="Email">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="inputPhone" class="col-sm-3 control-label">Телефон</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" id="inputPhone" name="Phone" placeholder="Phone">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="inputTo" class="col-sm-3 control-label">Куда</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" id="inputTo" name="Where" placeholder="Where">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="inputDate1" class="col-sm-3 control-label">Даты</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control datePicker" id="inputDate1" name="DepartureDate" placeholder="Departure">
+						<input type="text" class="form-control datePicker" id="inputDate2" name="ArrivalDate" placeholder="Arrival">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="wishes" class="col-sm-3 control-label">Пожелания*</label>
+					<div class="col-sm-9">
+						<textarea class="form-control" rows="3" name="Wishes" id="wishes"></textarea>
+					</div>
+				</div>
+
+				<button id='sendRequestTourButton' class="btn btn-primary">Отправить заявку</button>
+			</form>
+		</div>
+
+	</div>
+
+	<div id='tooglePickUpTour'>
+	</div>
+</div>

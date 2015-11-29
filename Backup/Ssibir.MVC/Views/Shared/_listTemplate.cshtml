@@ -1,0 +1,36 @@
+﻿<script type="text/template" id="listTemplate">
+	
+	<h5><span class="label label-default"><%= title %></span></h5> 
+	
+	<% _.each(list, function(item) { %>
+		<a href="<%= item.href %>">
+			<div class="card" data-key="<%= item.key %>" data-id="<%= item.id %>">
+				<img  class='image img-thumbnail' src="<%= item.thumbUrl %>" alt="" />
+				<div class="title">
+					<%= item.title %>
+				</div>
+				<div class="preText" title="<%= item.preText %>">
+					<span><%= item.preText %></span>
+				</div>
+
+				 <% if(item.tour){ %>
+					<div class="cost label label-info">
+						Цена <%= item.tour.Cost %> р.
+					</div>
+				<% } %>
+
+				<% if(item.extras){ %>
+					<% _.each(item.extras, function(extra) { %>
+						<div class="label extra label-info">
+							<% if(extra.label != extra.value){ %>
+								<span><%= extra.label %> : <%= extra.value %></span>
+							<% } else { %>
+								<span> <%= extra.value %></span>
+							<%  } %>
+						</div>
+					<% }) %>
+				<% } %>
+			</div>
+		</a>
+	<% } ) %>
+</script>

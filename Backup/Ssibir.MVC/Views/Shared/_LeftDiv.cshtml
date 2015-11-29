@@ -1,0 +1,47 @@
+﻿@{
+	var identity = (MyIdentity)HttpContext.Current.User.Identity;
+}
+
+<div class="tools-item">
+	<form class="navbar-search pull-left">
+		
+		<button type="button" class="searchHotels btn btn-success">
+			<a href="http://www.tariff-online.ru/search/search_hotel.jspa?cid=9839" target="_blank" class="search-query" style="color: white">
+				<b>Поиск отелей</b>
+			</a>
+		</button>
+
+		<div class="list-group countries">
+			<a href="/ss/Page/egypt" class="list-group-item" data-page-key="egypt">Египет</a>
+			<a href="/ss/Page/greece" class="list-group-item" data-page-key="greece">Греция</a>
+			<a href="/ss/Page/china" class="list-group-item" data-page-key="china">Китай</a>
+			<a href="/ss/Page/spain" class="list-group-item" data-page-key="spain">Испания</a>
+					
+			<a href="/ss/Page/oae" class="list-group-item" data-page-key="oae">ОАЭ</a>
+			<a href="/ss/Page/russia" class="list-group-item" data-page-key="russia">Россия</a>
+			<a href="/ss/Page/tailand" class="list-group-item" data-page-key="tailand">Тайланд</a>
+			<a href="/ss/Page/turkey" class="list-group-item" data-page-key="turkey">Турция</a>
+
+			<a href="/ss/Page/france" class="list-group-item" data-page-key="france">Франция</a>
+			<a href="/ss/Page/czech" class="list-group-item" data-page-key="czech">Чехия</a>
+		</div>
+		
+    </form>
+</div>
+
+
+<div class="safe" id="OwnOffice">
+	<div class="frame">
+		<div class="front">
+			<img src="@Url.Content("~/Images/Others/safe.png")"/>
+		</div>
+		<div class="back">
+			@if (!identity.IsAuthenticated)
+				{
+					<div id="PersonalInfo">@Html.Partial("_logOn")</div>
+				} else {
+					<div id="PersonalInfo">@Html.Partial("_userInformation")</div>
+				}
+		</div>
+	</div>
+</div>

@@ -20,6 +20,13 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -204,7 +211,6 @@
     </Compile>
     <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Helpers\SendGridHelper.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\User\CustomPrincipal.cs" />
     <Compile Include="Models\User\WrappedUser.cs" />
@@ -523,8 +529,18 @@
     <Content Include="Views\Page\Search.cshtml" />
     <Content Include="Views\Shared\_requestTour.cshtml" />
     <Content Include="Views\Shared\_ssAlert.cshtml" />
+    <None Include="Properties\PublishProfiles\ssibir2 - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\ssibir2 - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\ssibir2 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\ssibir2 - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\ssibir2 - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\ssibir2 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\ssibir3 - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\ssibir3 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\ssibir3 - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\ssibir3 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\ssisir4 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\ssisir4 - Web Deploy.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
