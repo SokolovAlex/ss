@@ -12,7 +12,7 @@ namespace Ssibir.DAL.Migrations
     using System.Linq;
     using System.Data.Entity.Validation;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Ssibir.DAL.Models.Context.DbCatalog>
+    internal sealed class Configuration : DbMigrationsConfiguration<Models.Context.DbCatalog>
     {
         private readonly string salt = BCryptHelper.GenerateSalt();
 
@@ -193,22 +193,22 @@ namespace Ssibir.DAL.Migrations
                                     Password = BCryptHelper.HashPassword("aaa", salt)
                                 }
                           };
-            clients.ForEach(d => context.Clients.Add(d));
+            clients.ForEach(d => context.Clients.AddOrUpdate(d));
 
             var dirData = new initDataDirection();
 
             List<Direction> dirs = dirData.GetDirectios();
-            dirs.ForEach(d => context.Directions.Add(d));
+            dirs.ForEach(d => context.Directions.AddOrUpdate(d));
 
             var tours = new List<Tour>
                           {
-                            new Tour() { Id = antaliaId, Title = "Анталия", Cost = 28000, Type = TourType.Beach, isHot = true },
-                            new Tour() { Id = ItalyId, Title = "Италия", Cost = 32000, Type = TourType.Culture, isHot = true },
-                            new Tour() { Id = czClassicId, Title = "Чехия классическая", Cost = 35000, Type = TourType.Individual, isHot = true },
-                            new Tour() { Id = pattongId, Title = "Паттонг", Cost = 24000, Type = TourType.Culture, isHot = true },
-                            new Tour() { Id = VenecId, Title = "Венеия", Cost = 43000, Type = TourType.Other, isHot = true }
+                            new Tour { Id = antaliaId, Title = "Анталия", Cost = 28000, Type = TourType.Beach, isHot = true },
+                            new Tour { Id = ItalyId, Title = "Италия", Cost = 32000, Type = TourType.Culture, isHot = true },
+                            new Tour { Id = czClassicId, Title = "Чехия классическая", Cost = 35000, Type = TourType.Individual, isHot = true },
+                            new Tour { Id = pattongId, Title = "Паттонг", Cost = 24000, Type = TourType.Culture, isHot = true },
+                            new Tour { Id = VenecId, Title = "Венеия", Cost = 43000, Type = TourType.Other, isHot = true }
                           };
-            tours.ForEach(d => context.Tours.Add(d));
+            tours.ForEach(d => context.Tours.AddOrUpdate(d));
 
             var ms = new List<Manager>
                           {
@@ -276,7 +276,7 @@ namespace Ssibir.DAL.Migrations
                                      key = "SokolovaIrina"
                                 }
                           };
-            ms.ForEach(d => context.Managers.Add(d));
+            ms.ForEach(d => context.Managers.AddOrUpdate(d));
 
             var pages = new List<Page>
                           {
@@ -411,20 +411,16 @@ namespace Ssibir.DAL.Migrations
                                     IsManual = true
                                 }
                           };
-            pages.ForEach(d => context.Pages.Add(d));
+            pages.ForEach(d => context.Pages.AddOrUpdate(d));
 
             List<Page> dirPages = dirData.GetDirectionPages();
-            dirPages.ForEach(d => context.Pages.Add(d));
-
-            List<Page> tourPages = dirData.GetDirectionPages();
-            dirPages.ForEach(d => context.Pages.Add(d));
-
+            dirPages.ForEach(d => context.Pages.AddOrUpdate(d));
 
             var toursData = new initDataTours();
             List<Tour> otherTours = toursData.GetTours();
-            otherTours.ForEach(d => context.Tours.Add(d));
+            otherTours.ForEach(d => context.Tours.AddOrUpdate(d));
             List<Page> otherTourPages = toursData.GetTourPages();
-            otherTourPages.ForEach(d => context.Pages.Add(d));
+            otherTourPages.ForEach(d => context.Pages.AddOrUpdate(d));
 
             var op = new List<Operator>
                           {
@@ -434,7 +430,7 @@ namespace Ssibir.DAL.Migrations
                                      Title = "TEZ"
                                 }
                           };
-            op.ForEach(d => context.Operators.Add(d));
+            op.ForEach(d => context.Operators.AddOrUpdate(d));
 
             try
             {
