@@ -29,7 +29,7 @@ namespace Ssibir.DAL.Migrations
                 .Index(t => t.TourId)
                 .Index(t => t.ClientId)
                 .Index(t => t.ManagerId);
-
+            
             CreateTable(
                 "dbo.Tours",
                 c => new
@@ -54,7 +54,7 @@ namespace Ssibir.DAL.Migrations
                 .Index(t => t.HotelId)
                 .Index(t => t.OperatorId)
                 .Index(t => t.DirectionId);
-
+            
             CreateTable(
                 "dbo.Hotels",
                 c => new
@@ -73,7 +73,7 @@ namespace Ssibir.DAL.Migrations
                 .ForeignKey("dbo.Pages", t => t.Page_Id)
                 .Index(t => t.Location_Id)
                 .Index(t => t.Page_Id);
-
+            
             CreateTable(
                 "dbo.Operators",
                 c => new
@@ -86,7 +86,7 @@ namespace Ssibir.DAL.Migrations
                         key = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
-
+            
             CreateTable(
                 "dbo.Directions",
                 c => new
@@ -97,7 +97,7 @@ namespace Ssibir.DAL.Migrations
                         key = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
-
+            
             CreateTable(
                 "dbo.Comments",
                 c => new
@@ -118,7 +118,7 @@ namespace Ssibir.DAL.Migrations
                 .Index(t => t.TourId)
                 .Index(t => t.ClientId)
                 .Index(t => t.Page_Id);
-
+            
             CreateTable(
                 "dbo.Clients",
                 c => new
@@ -137,7 +137,7 @@ namespace Ssibir.DAL.Migrations
                         key = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
-
+            
             CreateTable(
                 "dbo.Docs",
                 c => new
@@ -158,7 +158,7 @@ namespace Ssibir.DAL.Migrations
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Clients", t => t.Client_Id)
                 .Index(t => t.Client_Id);
-
+            
             CreateTable(
                 "dbo.Managers",
                 c => new
@@ -180,7 +180,7 @@ namespace Ssibir.DAL.Migrations
                         key = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
-
+            
             CreateTable(
                 "dbo.SessionEntities",
                 c => new
@@ -195,7 +195,7 @@ namespace Ssibir.DAL.Migrations
                         key = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
-
+            
             CreateTable(
                 "dbo.Pages",
                 c => new
@@ -229,7 +229,7 @@ namespace Ssibir.DAL.Migrations
                 .Index(t => t.LocationId)
                 .Index(t => t.DirectionId)
                 .Index(t => t.TourId);
-
+            
             CreateTable(
                 "dbo.Locations",
                 c => new

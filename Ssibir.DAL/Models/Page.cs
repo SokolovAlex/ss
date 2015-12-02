@@ -19,7 +19,6 @@ namespace Ssibir.DAL.Models
 
         public int Priority { get; set; }
 
-		//[StringLength(10000)]
 		public string Html { get; set; }
 
         public string PreText { get; set; }

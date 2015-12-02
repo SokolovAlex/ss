@@ -11,7 +11,7 @@ namespace Ssibir.DAL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201511291637070_init"; }
+            get { return "201512020643045_init"; }
         }
         
         string IMigrationMetadata.Source
