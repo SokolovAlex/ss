@@ -66,6 +66,7 @@
     <Compile Include="Models\ContextModel\initDataDirection.cs" />
     <Compile Include="Models\ContextModel\initDataTours2.cs" />
     <Compile Include="Models\ContextModel\initDataTours.cs" />
+    <Compile Include="Models\ContextModel\SeedManagers.cs" />
     <Compile Include="Models\Direction.cs" />
     <Compile Include="Models\Doc.cs" />
     <Compile Include="Models\Enum\CommentCategory.cs" />

@@ -23,7 +23,7 @@ namespace Ssibir.DAL.Migrations
 
         protected override void Seed(Models.Context.DbCatalog context)
         {
-            //OnceSeed(context);
+            OnceSeed(context);
         }
 
         private void OnceSeed(Models.Context.DbCatalog context)
@@ -32,73 +32,9 @@ namespace Ssibir.DAL.Migrations
             var tours2 = toursData2.GetTours();
             tours2.ForEach(d => context.Tours.AddOrUpdate(d));
 
-            var ms = new List<Manager>
-                          {
-                              new Manager()
-                                {
-                                     Id = Guid.NewGuid(),
-                                     Login="m",
-                                     Job = JobGrid.Director,
-                                     Password = BCryptHelper.HashPassword("mmm", salt),
-                                     LastName = "Соколова",
-                                     FirstName ="Елена",
-                                     Email = "s5sibir@yandex.ru",
-                                     Phone = "89137040184",
-                                     Skype = "sokolova.elena2",
-                                     Description = "Генеральный Директор, специалист по круизам, специалист по США",
-                                     key = "SokolovaElena"
-                                },
-                             new Manager()
-                                {
-                                     Id = Guid.NewGuid(),
-                                     Login="s",
-                                     Password = BCryptHelper.HashPassword("mmm", salt),
-                                     LastName = "Соколов",
-                                     FirstName ="Алексей",
-                                     Job = JobGrid.MidManager,
-                                     Email = "s77sibir@yandex.ru",
-                                     Phone = "89139277868",
-                                     Skype = "ierroglif",
-                                     Vk = "http://vk.com/id701209",
-                                     Description = "Специалист по Европе",
-                                     key = "SokolovAlex"
-                                },
-                            new Manager()
-                                {
-                                     Id = Guid.NewGuid(),
-                                     Login="e",
-                                     Job = JobGrid.commercialDirector,
-                                     Password = BCryptHelper.HashPassword("mmm", salt),
-                                     LastName = "Соколов",
-                                     FirstName ="Евгений",
-                                     Description = "Специалист по Азии",
-                                     key = "SokolovEvgeniy"
-                                },
-                            new Manager()
-                                {
-                                     Id = Guid.NewGuid(),
-                                     Login="alina",
-                                     Job = JobGrid.SeniorManager,
-                                     Password = BCryptHelper.HashPassword("mmm", salt),
-                                     LastName = "Соколова",
-                                     FirstName ="Алина",
-                                     Description = "Специалист по авиаперелетам",
-                                     key = "SokolovaAlina"
-                                },
-                            new Manager()
-                                {
-                                     Id = Guid.NewGuid(),
-                                     Login="i",
-                                     Job = JobGrid.MidManager,
-                                     Password = BCryptHelper.HashPassword("mmm", salt),
-                                     LastName = "Соколова",
-                                     FirstName ="Ирина",
-                                     Vk = "http://vk.com/naumenko",
-                                     Description = "Специалист по США",
-                                     key = "SokolovaIrina"
-                                }
-                          };
+            var ms = (new SeedManagers()).GetManagers().ToList();
             ms.ForEach(d => context.Managers.AddOrUpdate(d));
+
             var pages = toursData2.GetToursPages(ms.FirstOrDefault().Id);
 
             pages.ForEach(d => context.Pages.AddOrUpdate(d));
